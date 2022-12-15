@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 .calendar-wrapper {
-  width: 360px;
+  width: 100%;
   margin: 3em auto;
   padding: 2em;
   border: 1px solid #dcdcff;
