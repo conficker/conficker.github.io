@@ -1,34 +1,23 @@
 <html>
- <head>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
-   
-<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
-   
-   <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ru.js"></script>
+  <head>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>       <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ru.js"></script>
+    
 </head>
-<body> 
- 
+<body onload="myFunc()">
+  <input id="foo" type="text" name="foo" readonly>
   
-<div class="calendar-wrapper">
-<div id="divCal" class="calendar-wrapper2"></div>
-</div>
-  
-  
-  <script>
-         const elem = document.querySelector('div[id="divCal"]');
-    const datepicker = new Datepicker(elem, {
-  daysOfWeekDisabled: [0,6],
-  language: 'ru',
-}); 
-
-window.onload = function() {
-    var c = new Cal("divCal");			
-  c.showcurr();
+      <script>
       
-  
-  };
-  </script>
-  
+    const elem = document.querySelector('input[name="foo"]');
+const datepicker = new Datepicker(elem, {
+  daysOfWeekDisabled: [1,6],
+  language: 'ru',
+});
+
+    </script>
+
+
 	</body>
 </html>
