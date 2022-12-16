@@ -2,10 +2,19 @@
  <head>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
 
-<script src="12.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+
+   
 </head>
 <body> 
-<input name="foo" data-date="01/25/2020"></input>
+  <input name="foo" data-date="01/25/2020"></input>
+  <script>
+     const elem = document.querySelector('input[name="foo"]');
+const datepicker = new Datepicker(elem, {
+  // ...options
+}); 
+     </script>
+
 	</body>
 </html>
