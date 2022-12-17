@@ -1,30 +1,34 @@
+<!DOCTYPE html>
 <html>
- <head>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
-   
-<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
-   
-   <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ru.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  .container { width: 400px; margin:0 auto; }
-   </style>
+* {
+  box-sizing: border-box;
+}
+
+.zoom {
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+</style>
 </head>
-<body> 
- <div class="container">
+<body>
+
+<h1>Zoom on Hover</h1>
+<p>Hover over the div element.</p>
   
-<div class="calendar-wrapper">
-	<input type="week" name="month">
-<input type="text" id="divCal" class="calendar-wrapper2" autofocus></input>
-</div>
-  
-  
-  <script>
-         const elem = document.querySelector('input[id="divCal"]');
-    const datepicker = new Datepicker(elem, {
-  daysOfWeekDisabled: [1,6],
-  language: 'ru',
-}); 
-  </script>
- </div>
-	</body>
+<div class="zoom"></div>
+
+</body>
 </html>
