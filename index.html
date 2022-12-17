@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker.min.js"></script>
+  
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
   box-sizing: border-box;
 }
-
+.datepicker-picker
+  {
+    text-align: center;
+        margin-left: -50px;
+    margin-top: -70%;
+    margin-bottom: 0%;
+  }
+  
 .zoom {
   padding: 50px;
   background-color: green;
@@ -19,7 +31,7 @@
 .zoom {
   -ms-transform: scale(2.2); /* IE 9 */
   -webkit-transform: scale(2.2); /* Safari 3-8 */
-  transform: scale(2.2); 
+  transform: scale(2.0); 
 }
 </style>
 </head>
@@ -28,7 +40,13 @@
 <h1>Zoom on Hover</h1>
 <p>Hover over the div element.</p>
   
-<div class="zoom"></div>
+<div name="foo" class="zoom"></div>
 
 </body>
+    <script>
+    const elem = document.querySelector('div[name="foo"]');
+const datepicker = new Datepicker(elem, {
+  // ...options
+}); 
+  </script>
 </html>
