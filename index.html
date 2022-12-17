@@ -6,33 +6,23 @@
    
    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ru.js"></script>
 <style>
- body, html { 
-    width: 50%;
-    height: 50%;
-}
+  .container { width: 400px; margin:0 auto; }
    </style>
 </head>
 <body> 
  <div class="container">
   
 <div class="calendar-wrapper">
-<div id="divCal" class="calendar-wrapper2" autofocus></div>
+<input type="text" id="divCal" class="calendar-wrapper2" autofocus></input>
 </div>
   
   
   <script>
-         const elem = document.querySelector('div[id="divCal"]');
+         const elem = document.querySelector('input[id="divCal"]');
     const datepicker = new Datepicker(elem, {
   daysOfWeekDisabled: [1,6],
   language: 'ru',
 }); 
-
-window.onload = function() {
-    var c = new Cal("divCal");			
-  c.showcurr();
-      
-  
-  };
   </script>
  </div>
 	</body>
