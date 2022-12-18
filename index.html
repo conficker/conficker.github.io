@@ -69,13 +69,26 @@ td.select
     background: green;
 }
 
+.display
+{
+color: white;
+
+}
+
+a {color:inherit;}
+
 
 </style>
 </head>
 <body>
 
-<div name="foo" class="zoom"></div>
+<a href="#page-3">
+<div name="foo" class="zoom"></div> </a>
 <div name="f" class="z">
+
+<scroll-container>
+  
+
 <table id="tblCustomers">
 
 <tr>
@@ -89,23 +102,26 @@ td.select
 <td onclick="select_time(this)" id="item" class="time">14:00</td>
 </tr>
 
+
 </table>
+<scroll-page id="page-3"></scroll-page>
+</scroll-container>
+
 </div>
 
-	
-//***
-<div id="display">.</div>
-<div id="display">.</div>
-<div id="display">.</div>
-<div id="display">.</div>
-<div id="display">.</div>
-<div id="display">.</div>
-<div id="display">.</div><div id="display">.</div>
-<div id="display">.</div><div id="display">.</div>
-<div id="display">.</div>	
-//********
 
-	
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+<div id="display">.</div>
+
 </body>
     <script>
     const elem = document.querySelector('div[name="foo"]');
@@ -156,8 +172,11 @@ const datepicker = new Datepicker(elem, {
                 tbl.appendChild(tbdy);
         
             //alert("ss");
-            const el = document.getElementById('item');
-            el.scrollIntoView(false); 
+            //const el = document.getElementById('item');
+			//el.scrollIntoView({behavior: "smooth"});
+
+
+            
       };
       let evt;
       const input = document.getElementsByClassName("zoom")[0];
