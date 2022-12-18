@@ -34,6 +34,40 @@
   margin-bottom: 0%;
   margin-left: 15%;
 }
+.z {
+  background-color: white;
+  transition: transform .2s;
+  width: 0%;
+  height: 0%;
+  margin-top: 10%;
+  margin-bottom: 0%;
+  margin-left: 10%;
+}
+
+  
+table {
+  clear: both;
+  width: 100%;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+    border-left: 2px solid black;
+  border-bottom: 2px solid black;
+    padding-left: 25px;
+    padding-right: 20px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+        cursor: pointer;
+        
+}
+td.select
+{
+    background: green;
+}
 
 
 </style>
@@ -41,6 +75,23 @@
 <body>
 
 <div name="foo" class="zoom"></div>
+<div name="f" class="z">
+<table id="tblCustomers">
+
+<tr>
+<td onclick="select_time(this)" id="item" class="time">11:00</td>
+<td onclick="select_time(this)" id="item" class="time">12:00</td>
+<td onclick="select_time(this)" id="item" class="time">12:00</td>
+<td onclick="select_time(this)" id="item" class="time">12:00</td>
+</tr>
+<tr>
+<td onclick="select_time(this)" id="item" class="time">13:00</td>
+<td onclick="select_time(this)" id="item" class="time">14:00</td>
+</tr>
+
+</table>
+</div>
+
 
 </body>
     <script>
@@ -49,6 +100,83 @@ const datepicker = new Datepicker(elem, {
  language: 'ru',
  daysOfWeekDisabled: [1,0,6],
 }); 
+
+//событие на выбор даты
+      const changeDateListener = (e) => {
+        evt = e;
+        //alert(evt.detail.viewDate.getYear());
+        //очистка таблицы
+        var rowCount = tblCustomers.rows.length;
+        for(var i = 0;i<rowCount;){
+        try
+        	{
+            tblCustomers.deleteRow(i);
+           }
+           catch(err)
+           {
+           		break;
+			}
+		}
+        //добавление ячеек с веремен
+
+  		//tbl.innerText = '12:00';
+                var tbl = tblCustomers;
+                tbl.setAttribute('border', '1');
+                var tbdy = document.createElement('tbody');
+                for (var i = 0; i < 2; i++) {
+                  var tr = document.createElement('tr');
+                  for (var j = 0; j < 4; j++) {
+                    if (i == 2 && j == 1) {
+                      break
+                    } else {
+                      var td = document.createElement('td');
+                      td.appendChild(document.createTextNode('12:00'))
+                      i == 1 && j == 1 ? td.setAttribute('rowSpan', '2') : null;
+                      td.setAttribute('class', 'time');
+                      td.setAttribute('id', 'item');
+                      td.setAttribute('onclick', 'select_time(this)');
+                      tr.appendChild(td)
+                    }
+                  }
+                  tbdy.appendChild(tr);
+                }
+                tbl.appendChild(tbdy);
+        
+            //alert("ss");
+            
+      };
+      let evt;
+      const input = document.getElementsByClassName("zoom")[0];
+      input.addEventListener('changeDate', changeDateListener);
+
+
+//событие на выбор времени
+function select_time(e) {
+	try {
+ 		var sel = document.getElementsByClassName("select")[0];
+ 		sel.className = "time"; 
+            //alert(rowCount);
+        
+        
+
+	} 
+	catch (err) {
+
+	}
+
+
+  e.className = "select";
+}
+
+
+
+//получение параметров гет
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const color = urlParams.get('filename')
+console.log(color);
+
+
   </script>
   
   
